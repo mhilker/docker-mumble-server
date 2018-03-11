@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  mumble:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data/:/var/lib/murmur/
+    ports:
+      - 64738:64738
+      - 64738:64738/udp
