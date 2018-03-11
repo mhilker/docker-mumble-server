@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: mhilker/murmur
     volumes:
       - ./data/:/var/lib/murmur/
     ports:
