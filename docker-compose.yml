@@ -12,3 +12,9 @@ services:
     ports:
       - 64738:64738
       - 64738:64738/udp
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
