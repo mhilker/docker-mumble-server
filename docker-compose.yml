@@ -9,12 +9,8 @@ services:
     image: mhilker/murmur
     volumes:
       - ./data/:/var/lib/murmur/
+      - ./fullchain.pem:/etc/murmur/fullchain.pem
+      - ./privkey.pem:/etc/murmur/privkey.pem
     ports:
       - 64738:64738
       - 64738:64738/udp
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-        reservations:
-          memory: 512M
