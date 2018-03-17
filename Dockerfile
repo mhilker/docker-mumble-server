@@ -27,7 +27,8 @@ COPY conf/murmur.ini /etc/murmur/murmur.ini
 COPY entrypoint.sh /opt/murmur/entrypoint.sh
 
 RUN adduser --disabled-password --gecos '' murmur \
- && chown -R murmur:murmur /opt/murmur
+ && chown -R murmur:murmur /opt/murmur \
+ && chown -R murmur:murmur /var/lib/murmur
 
 VOLUME ["/var/lib/murmur/"]
 
