@@ -14,6 +14,8 @@ services:
       - 64738:64738
       - 64738:64738/udp
     environment:
+      - TLS_CERT_FILE=mumble.darkgenesis.de.crt
+      - TLS_KEY_FILE=mumble.darkgenesis.de.key
       - VIRTUAL_HOST=mumble.darkgenesis.de
       - LETSENCRYPT_HOST=mumble.darkgenesis.de
       - LETSENCRYPT_EMAIL=maikhilker89@gmail.com
@@ -23,7 +25,6 @@ services:
 
 volumes:
   data:
-
 networks:
   nginx-proxy:
     external:
