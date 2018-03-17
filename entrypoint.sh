@@ -13,8 +13,8 @@ do
     inotifywait -q -t 60 -e create -e moved_to "$(dirname $KEY)"
 done
 
-ln -s "$CERT" "/etc/murmur/fullchain.pem"
-ln -s "$KEY" "/etc/murmur/privkey.pem"
+ln -sfn "$CERT" "/etc/murmur/fullchain.pem"
+ln -sfn "$KEY" "/etc/murmur/privkey.pem"
 
 echo "EXEC"
 exec "$@"

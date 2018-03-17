@@ -21,11 +21,11 @@ services:
       - LETSENCRYPT_EMAIL=maikhilker89@gmail.com
     restart: unless-stopped
     networks:
-      - nginx-proxy
+      - proxy
 
 volumes:
   data:
 networks:
-  nginx-proxy:
+  proxy:
     external:
-      name: "nginx-proxy"
+      name: "proxy"
