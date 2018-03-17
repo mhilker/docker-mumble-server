@@ -4,6 +4,7 @@ RUN apt-get update \
  && apt-get install -y \
     curl \
     bzip2 \
+    inotify-tools \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/murmur/ \
@@ -22,11 +23,13 @@ RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatu
  && cp -R /tmp/murmur-static*/* /opt/murmur/ \
  && rm -rf /tmp/*
 
-ADD murmur.ini /etc/murmur/murmur.ini
+COPY conf/murmur.ini /etc/murmur/murmur.ini
+COPY entrypoint.sh /opt/murmur/entrypoint.sh
 
-RUN adduser -u 500 --disabled-password --gecos '' murmur \
-  && chown -R murmur:murmur /opt/murmur
+RUN adduser --disabled-password --gecos '' murmur \
+ && chown -R murmur:murmur /opt/murmur
 
 VOLUME ["/var/lib/murmur/"]
 
+ENTRYPOINT ["/opt/murmur/entrypoint.sh"]
 CMD ["/opt/murmur/murmur.x86", "-fg", "-ini", "/etc/murmur/murmur.ini"]

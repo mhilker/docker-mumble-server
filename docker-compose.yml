@@ -8,9 +8,23 @@ services:
       dockerfile: Dockerfile
     image: mhilker/murmur
     volumes:
-      - ./data/:/var/lib/murmur/
-      - ./fullchain.pem:/etc/murmur/fullchain.pem
-      - ./privkey.pem:/etc/murmur/privkey.pem
+      - data:/var/lib/murmur/
+      - ./certs:/etc/murmur/certs/
     ports:
       - 64738:64738
       - 64738:64738/udp
+    environment:
+      - VIRTUAL_HOST=mumble.darkgenesis.de
+      - LETSENCRYPT_HOST=mumble.darkgenesis.de
+      - LETSENCRYPT_EMAIL=maikhilker89@gmail.com
+    restart: unless-stopped
+    networks:
+      - nginx-proxy
+
+volumes:
+  data:
+
+networks:
+  nginx-proxy:
+    external:
+      name: "nginx-proxy"
