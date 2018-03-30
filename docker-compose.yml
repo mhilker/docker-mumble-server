@@ -9,23 +9,12 @@ services:
     image: mhilker/murmur
     volumes:
       - data:/var/lib/murmur/:rw
-      - /root/certs:/etc/murmur/certs/:ro
+      - ${MUMBLE_TLS_CERT}:/etc/murmur/certs/fullchain.pem:ro
+      - ${MUMBLE_TLS_KEY}:/etc/murmur/certs/privkey.pem:ro
     ports:
       - 64738:64738
       - 64738:64738/udp
-    environment:
-      - TLS_CERT_FILE=mumble.darkgenesis.de.crt
-      - TLS_KEY_FILE=mumble.darkgenesis.de.key
-      - VIRTUAL_HOST=mumble.darkgenesis.de
-      - LETSENCRYPT_HOST=mumble.darkgenesis.de
-      - LETSENCRYPT_EMAIL=maikhilker89@gmail.com
     restart: unless-stopped
-    networks:
-      - proxy
 
 volumes:
   data:
-networks:
-  proxy:
-    external:
-      name: "proxy"

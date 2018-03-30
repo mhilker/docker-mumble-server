@@ -4,13 +4,13 @@ RUN apt-get update \
  && apt-get install -y \
     curl \
     bzip2 \
-    inotify-tools \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/murmur/ \
  && mkdir -p /var/lib/murmur/ \
  && mkdir -p /etc/murmur/
 
+# Install murmur
 RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatures/master/mumble-auto-build-2017.asc" -o /tmp/key.asc \
  && gpg --import /tmp/key.asc \
  && rm /tmp/key.asc \
@@ -23,8 +23,7 @@ RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatu
  && cp -R /tmp/murmur-static*/* /opt/murmur/ \
  && rm -rf /tmp/*
 
-COPY conf/murmur.ini /etc/murmur/murmur.ini
-COPY entrypoint.sh /opt/murmur/entrypoint.sh
+COPY murmur.ini /etc/murmur/murmur.ini
 
 RUN adduser --disabled-password --gecos '' murmur \
  && chown -R murmur:murmur /opt/murmur \
@@ -32,5 +31,4 @@ RUN adduser --disabled-password --gecos '' murmur \
 
 VOLUME ["/var/lib/murmur/"]
 
-ENTRYPOINT ["/opt/murmur/entrypoint.sh"]
 CMD ["/opt/murmur/murmur.x86", "-fg", "-ini", "/etc/murmur/murmur.ini"]
