@@ -9,8 +9,8 @@ services:
     image: mhilker/murmur
     volumes:
       - data:/var/lib/murmur/:rw
-      - ${MUMBLE_TLS_CERT}:/etc/murmur/certs/fullchain.pem:ro
-      - ${MUMBLE_TLS_KEY}:/etc/murmur/certs/privkey.pem:ro
+      - ${MUMBLE_TLS_CERT}:/etc/murmur/fullchain.pem:ro
+      - ${MUMBLE_TLS_KEY}:/etc/murmur/privkey.pem:ro
     ports:
       - 64738:64738
       - 64738:64738/udp
