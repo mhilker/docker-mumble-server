@@ -3,7 +3,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Murmur Version][ico-version]](https://wiki.mumble.info/wiki/Main_Page)
 
-This is an Mumur Server inside docker.
+This is a [Murmur Server](https://wiki.mumble.info/wiki/Main_Page) inside docker.
 
 ## Build
 
