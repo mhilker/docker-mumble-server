@@ -6,9 +6,7 @@ RUN apt-get update \
     bzip2 \
  && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /opt/murmur/ \
- && mkdir -p /var/lib/murmur/ \
- && mkdir -p /etc/murmur/
+RUN mkdir -p /opt/murmur/
 
 # Install murmur
 RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatures/master/mumble-auto-build-2017.asc" -o /tmp/key.asc \
@@ -22,6 +20,14 @@ RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatu
  && rm /tmp/murmur.tar.bz2 \
  && cp -R /tmp/murmur-static*/* /opt/murmur/ \
  && rm -rf /tmp/*
+
+FROM debian:jessie as production
+
+RUN mkdir -p /opt/murmur/ \
+ && mkdir -p /var/lib/murmur/ \
+ && mkdir -p /etc/murmur/
+
+COPY --from=base /opt/murmur/ /opt/murmur/
 
 COPY murmur.ini /etc/murmur/murmur.ini
 
