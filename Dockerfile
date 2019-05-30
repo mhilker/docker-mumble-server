@@ -32,7 +32,7 @@ COPY --from=base /opt/murmur/ /opt/murmur/
 
 COPY murmur.ini /etc/murmur/murmur.ini
 
-RUN adduser --disabled-password --gecos '' murmur \
+RUN adduser --home /opt/murmur/ --disabled-password --gecos '' murmur \
  && chown -R murmur:murmur /opt/murmur \
  && chown -R murmur:murmur /var/lib/murmur
 
