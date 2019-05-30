@@ -1,9 +1,10 @@
-FROM debian:jessie
+FROM debian:stretch as base
 
 RUN apt-get update \
  && apt-get install -y \
     curl \
     bzip2 \
+    gnupg \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/murmur/
@@ -21,7 +22,7 @@ RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatu
  && cp -R /tmp/murmur-static*/* /opt/murmur/ \
  && rm -rf /tmp/*
 
-FROM debian:jessie as production
+FROM debian:stretch as production
 
 RUN mkdir -p /opt/murmur/ \
  && mkdir -p /var/lib/murmur/ \
