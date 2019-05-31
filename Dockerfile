@@ -36,6 +36,12 @@ RUN adduser --home /opt/murmur/ --disabled-password --gecos '' murmur \
  && chown -R murmur:murmur /opt/murmur \
  && chown -R murmur:murmur /var/lib/murmur
 
+EXPOSE 6502
+
+EXPOSE 64738
+
+EXPOSE 64738/udp
+
 VOLUME ["/var/lib/murmur/"]
 
 CMD ["/opt/murmur/murmur.x86", "-fg", "-ini", "/etc/murmur/murmur.ini"]
