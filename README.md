@@ -1,4 +1,4 @@
-# Mumble Server
+# Murmur Server
 
 [![Software License][ico-license]](LICENSE.md)
 [![Murmur Version][ico-version]](https://wiki.mumble.info/wiki/Main_Page)
@@ -17,10 +17,6 @@ Push the images to the repository.
 
     docker-compose push
     
-## Run
-
-    docker stack deploy --compose-file docker-compose.yml mumble
-
 ## Changelog
 
 Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
