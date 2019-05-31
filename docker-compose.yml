@@ -12,9 +12,9 @@ services:
       - ${MUMBLE_TLS_CERT}:/etc/murmur/fullchain.pem:ro
       - ${MUMBLE_TLS_KEY}:/etc/murmur/privkey.pem:ro
     ports:
+      - 6502:6502
       - 64738:64738
       - 64738:64738/udp
-    restart: unless-stopped
 
 volumes:
   data:
