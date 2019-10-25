@@ -26,4 +26,4 @@ Please see the [changelog](CHANGELOG.md) for more information on what has change
 The MIT License (MIT). Please see the [license file](LICENSE.md) for more information.
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-version]: https://img.shields.io/badge/version-1.3.0--rc1-brightgreen.svg?style=flat-square
+[ico-version]: https://img.shields.io/badge/murmur-1.3.0-brightgreen.svg?style=flat-square

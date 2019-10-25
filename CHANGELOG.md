@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2019-10-25
+### Changed
+- Murmur Version `1.3.0`
+
 ## [0.3.0] - 2018-05-31
 ### Changed
 - Enabled ICE

@@ -13,8 +13,8 @@ RUN mkdir -p /opt/murmur/
 RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatures/master/mumble-auto-build-2019.asc" -o /tmp/key.asc \
  && gpg --import /tmp/key.asc \
  && rm /tmp/key.asc \
- && curl -XGET "https://dl.mumble.info/murmur-static_x86-1.3.0-rc1.tar.bz2" -o /tmp/murmur.tar.bz2 \
- && curl -XGET "https://dl.mumble.info/murmur-static_x86-1.3.0-rc1.tar.bz2.sig" -o /tmp/murmur.sig \
+ && curl -XGET "https://dl.mumble.info/murmur-static_x86-1.3.0.tar.bz2" -o /tmp/murmur.tar.bz2 \
+ && curl -XGET "https://dl.mumble.info/murmur-static_x86-1.3.0.tar.bz2.sig" -o /tmp/murmur.sig \
  && gpg --verify /tmp/murmur.sig /tmp/murmur.tar.bz2 \
  && rm /tmp/murmur.sig \
  && tar -xvjf /tmp/murmur.tar.bz2 -C /tmp \

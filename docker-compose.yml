@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mhilker/murmur
+    image: mhilker/murmur:1.3.0
     volumes:
       - data:/var/lib/murmur/:rw
       - ${MUMBLE_TLS_CERT}:/etc/murmur/fullchain.pem:ro
