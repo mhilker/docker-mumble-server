@@ -6,9 +6,7 @@ RUN apt-get update \
     bzip2 \
     gnupg \
  && rm -rf /var/lib/apt/lists/*
-
 RUN mkdir -p /opt/murmur/
-
 # Install murmur
 RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatures/master/mumble-auto-build-2019.asc" -o /tmp/key.asc \
  && gpg --import /tmp/key.asc \
@@ -23,25 +21,16 @@ RUN curl -XGET "https://raw.githubusercontent.com/mumble-voip/mumble-gpg-signatu
  && rm -rf /tmp/*
 
 FROM debian:stretch as production
-
 RUN mkdir -p /opt/murmur/ \
  && mkdir -p /var/lib/murmur/ \
  && mkdir -p /etc/murmur/
-
 COPY --from=base /opt/murmur/ /opt/murmur/
-
 COPY murmur.ini /etc/murmur/murmur.ini
-
 RUN adduser --home /opt/murmur/ --disabled-password --gecos '' murmur \
  && chown -R murmur:murmur /opt/murmur \
  && chown -R murmur:murmur /var/lib/murmur
-
 EXPOSE 6502
-
 EXPOSE 64738
-
 EXPOSE 64738/udp
-
 VOLUME ["/var/lib/murmur/"]
-
 CMD ["/opt/murmur/murmur.x86", "-fg", "-ini", "/etc/murmur/murmur.ini"]
