@@ -9,13 +9,17 @@ This is a [Murmur Server](https://wiki.mumble.info/wiki/Main_Page) inside docker
 
 Build the container with `docker-compose`.
 
-    docker-compose build
-    
+```bash
+docker-compose build
+```
+ 
 ## Push
 
 Push the images to the repository.
 
-    docker-compose push
+```bash
+docker-compose push
+```
     
 ## Changelog
 
