@@ -2,6 +2,7 @@
 
 [![Software License][ico-license]](LICENSE.md)
 [![Murmur Version][ico-version]](https://wiki.mumble.info/wiki/Main_Page)
+[![Workflow][ico-workflow]](https://github.com/mhilker/murmur/actions)
 
 This is a [Murmur Server](https://wiki.mumble.info/wiki/Main_Page) inside docker.
 
@@ -31,3 +32,4 @@ The MIT License (MIT). Please see the [license file](LICENSE.md) for more inform
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-version]: https://img.shields.io/badge/murmur-1.3.0-brightgreen.svg?style=flat-square
+[ico-workflow]: https://img.shields.io/github/workflow/status/mhilker/commander/Build?style=flat-square
