@@ -13,7 +13,7 @@ Build the container with `docker-compose`.
 ```bash
 docker-compose build
 ```
- 
+
 ## Push
 
 Push the images to the repository.
@@ -21,7 +21,7 @@ Push the images to the repository.
 ```bash
 docker-compose push
 ```
-    
+
 ## Changelog
 
 Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
