@@ -11,9 +11,12 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
+
       - name: Build image
         run: docker-compose build
+
       - name: Log into registry
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u mhilker --password-stdin
+
       - name: Push image
         run: docker-compose push
